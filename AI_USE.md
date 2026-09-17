@@ -1,0 +1,1 @@
+is required because ChatGPT is being used. It must identify the tool, prompts/transcript link or file, outputs reviewed, verification performed, and team decisions.

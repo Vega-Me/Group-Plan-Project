@@ -1,0 +1,1 @@
+must include dated contributions, commit hashes/links, review/testing work, blockers, the integration checkpoint, and a signed statement from each member.
