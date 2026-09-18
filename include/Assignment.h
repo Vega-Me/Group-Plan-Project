@@ -22,14 +22,14 @@ public:
                int importance, bool completed = false);
 
     int getId() const;
-    string getCourseName() const;
+    string getCourseName() const;       //all const because they return a member's information without changing
     string getTitle() const;
     int getDaysUntilDue() const;
     double getEstimatedHours() const;
     int getImportance() const;
     bool isCompleted() const;
 
-    void setCompleted(bool status);
+    void setCompleted(bool status);     //changing the completed member
     string calculatePriority() const;
     string toString() const;
 };
