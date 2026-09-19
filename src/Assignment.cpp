@@ -52,6 +52,10 @@ bool Assignment::isCompleted() const {
     return completed;
 }
 
+double Assignment::getEstimatedHours() const {
+    return estimatedHours;
+}
+
 //==============================================
 
 void Assignment::setCompleted(bool status) {
