@@ -1,6 +1,5 @@
 // Zhang implements the input helper functions on feature/ui-validation.
 #include "input_utils.h"
-
 #include <iostream>
 #include <limits>
 
