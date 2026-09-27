@@ -4,14 +4,14 @@
 
 - C++ Standard: C++17
 - Build System: CMake
-- Integrated Commit Tested: [fill in after integration]
-- Test Date: [fill in after final testing]
+- Integrated Commit Tested: b7aabc9
+- Test Date: September 27, 2026
 
 ## September 21 Integration Checkpoint
 
-- Integrated Branches / Pull Requests: [fill in actual PR numbers or links]
-- Build Result: [PASS / FAIL]
-- Basic Integrated Test: [describe what was actually tested]
+- Integrated Branches / Pull Requests: PR #1 feature/ui-validation → main; PR #2 feature/model-planner → main
+- Build Result: PASS
+- Basic Integrated Test: Added assignments, displayed all assignments, checked HIGH-priority tasks, marked an assignment complete, saved and exited, restarted the program, and verified that saved assignments reloaded successfully.
 
 ## Reproducible Tests
 
