@@ -17,7 +17,7 @@ public:
 
     void addAssignment(string courseName, string title,
                        int daysUntilDue, double estimatedHours,
-                       int importance);
+                       int importance);     
 
     void displayAll() const;
     void displayPriorityTasks() const;
