@@ -22,7 +22,7 @@ void StudyPlanner::displayAll() const {
         cout << "No assignments found" << endl; 
         return;
     }
-    for (int i = 0; static_cast<int>(assignments.size()); i++) {
+    for (int i = 0; i < static_cast<int>(assignments.size()); i++) {
         cout << assignments[i].toString() << endl;
     }
     return;
@@ -32,7 +32,6 @@ void StudyPlanner::displayPriorityTasks() const {       //get priority string an
     bool found = false;
     for (size_t i = 0; i < assignments.size(); i++) {
         if (assignments[i].calculatePriority() == "HIGH" && assignments[i].isCompleted() == false) {
-            assignments[i].toString();
             found = true;
             cout << assignments[i].toString() << endl;
         }
