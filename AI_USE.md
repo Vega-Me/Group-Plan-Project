@@ -7,7 +7,6 @@ ChatGPT
 ## Zhang Yunja
 
 - Tool: ChatGPT
-- Conversation/transcript: [Insert Zhang’s ChatGPT share link or transcript filename.]
 - Prompts/tasks: Requested step-by-step guidance for my assigned portion of the project, including input validation, the main menu, README documentation, and testing.
 - Outputs reviewed: Guidance and examples for input_utils.cpp, main.cpp, README.md, and TESTING.md.
 - Verification performed: Built the integrated program with CMake and ran the 20 tests recorded in TESTING.md, covering normal, boundary, invalid-input, missing-data, completion, and save/load behavior.
