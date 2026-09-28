@@ -89,4 +89,4 @@ If the data file is missing or empty, the planner starts with no assignments.
 ## Team
 
 - Marcos Gilbert
-- Zhang Yunja
+- Zhang Yunjia

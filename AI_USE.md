@@ -4,7 +4,7 @@
 
 ChatGPT
 
-## Zhang Yunja
+## Zhang Yunjia
 
 - Tool: ChatGPT
 - Prompts/tasks: Requested step-by-step guidance for my assigned portion of the project, including input validation, the main menu, README documentation, and testing.
