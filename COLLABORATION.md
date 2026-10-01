@@ -18,7 +18,10 @@ I confirm that I authored the work attributed to me, reviewed/tested integrated 
 Signature/name: Marcos Gilbert  
 Date: October 1, 2026
 
-Zhang Yunja
+I confirm that I authored the work attributed to me, reviewed/tested integrated team work, and can explain the complete submitted program.
+
+Signature/Name: Zhang Yunjia
+Date: October 1, 2026
 
 ## Contribution Log
 
