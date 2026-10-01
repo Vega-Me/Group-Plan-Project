@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cmath>
 using namespace std;
 
 StudyPlanner::StudyPlanner() 
@@ -69,6 +70,7 @@ bool StudyPlanner::loadFromFile(string filename) {
         return false;
     }
 
+
     assignments.clear();         //clear the vector assignments to paste new data
 
     string line;                //temporary for getline
@@ -89,28 +91,105 @@ bool StudyPlanner::loadFromFile(string filename) {
         string importanceText;
         string completedText;
 
-        getline(ss, idText, '\t');      //Taking every piece of the mini stream ss variable, and now we are extracting every line ignoring whitespace and only extracting to the new column '\n'
-        getline(ss, courseName, '\t');  //doing getline -> taking info from ss -> putting into variable name -> stopping once we hit the next column
-        getline(ss, title, '\t');
-        getline(ss, daysText, '\t');
-        getline(ss, hoursText, '\t');
-        getline(ss, importanceText, '\t');
-        getline(ss, completedText, '\t');
+        if (
+        !getline(ss, idText, '\t') ||      //Taking every piece of the mini stream ss variable, and now we are extracting every line ignoring whitespace and only extracting to the new column '\n'
+        !getline(ss, courseName, '\t') ||  //doing getline -> taking info from ss -> putting into variable name -> stopping once we hit the next column
+        !getline(ss, title, '\t') ||
+        !getline(ss, daysText, '\t') ||
+        !getline(ss, hoursText, '\t') ||
+        !getline(ss, importanceText, '\t') ||
+        !getline(ss, completedText, '\t')
+        ) { 
+            cout << "Skipping invalid saved assignments." << endl;
+            continue;
+            }
+        if (courseName.find_first_not_of(" \t\r\n") == string::npos ||
+        title.find_first_not_of(" \t\r\n") == string::npos) {
 
-        int id = stoi(idText);      //NEW CONCEPT >>> string to integer, s-to-i. Turns our existing string variables from lines and we can start turning them into usable variables
-        int daysUntilDue = stoi(daysText);
-        double estimatedHours = stod(hoursText); //String to double, s-to-d. These are intuitive to understand, when we want to turn a string to a different type we do s-to-(type we want)
-        int importance = stoi(importanceText);
-        bool completed = stoi(completedText); //we turn it into a integer and then every non 0 integer c++ will read as true.
+        cout << "Skipping invalid saved assignment." << endl;
+        continue;
+        }
 
-        Assignment loadedAssignment(            //creating temporary loop object assignment and then inputting all our variables from ss
-            id, courseName, title, daysUntilDue, estimatedHours, importance, completed
-        );
+        try {
+            size_t position;
 
-        assignments.push_back(loadedAssignment);
-        
-        if (id > largestId) {
-            largestId = id;
+            int id = stoi(idText, &position);
+
+            if (position != idText.size()) {
+                cout << "Skipping invalid saved assignment." << endl;
+                continue;
+            }
+
+
+            int daysUntilDue = stoi(daysText, &position);
+
+            if (position != daysText.size()) {
+                cout << "Skipping invalid saved assignment." << endl;
+                continue;
+            }
+
+
+            double estimatedHours = stod(hoursText, &position);
+
+            if (position != hoursText.size()) {
+                cout << "Skipping invalid saved assignment." << endl;
+                continue;
+            }
+
+
+            int importance = stoi(importanceText, &position);
+
+            if (position != importanceText.size()) {
+                cout << "Skipping invalid saved assignment." << endl;
+                continue;
+            }
+
+
+            int completedNumber = stoi(completedText, &position);
+
+            if (position != completedText.size()) {
+                cout << "Skipping invalid saved assignment." << endl;
+                continue;
+            }
+
+
+            if (id <= 0 ||
+                daysUntilDue < 0 ||
+                estimatedHours < 0 ||
+                !std::isfinite(estimatedHours) ||
+                importance < 1 ||
+                importance > 3 ||
+                (completedNumber != 0 && completedNumber != 1)) {
+
+                cout << "Skipping invalid saved assignment." << endl;
+                continue;
+            }
+
+
+            bool completed = (completedNumber == 1);
+
+
+            Assignment loadedAssignment(
+                id,
+                courseName,
+                title,
+                daysUntilDue,
+                estimatedHours,
+                importance,
+                completed
+            );
+
+
+            assignments.push_back(loadedAssignment);
+
+
+            if (id > largestId) {
+                largestId = id;
+            }
+        }
+        catch (const exception& e) {
+            cout << "Skipping invalid saved assignment." << endl;
+            continue;
         }
     }
     nextId = largestId + 1; //next id for the studyplanner class is going to have a id larger than the last one that was loaded

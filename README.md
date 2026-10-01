@@ -12,7 +12,7 @@ A console-based C++17 program that helps a college student track assignments and
 - Mark an assignment complete by numeric ID.
 - Save assignments to a local text file.
 - Reload saved assignments when the program starts.
-- Handle empty, missing-file, boundary, and invalid-input cases safely.
+- Safely handle missing, empty, or malformed saved data without crashing.
 
 ## Project Structure
 
@@ -66,18 +66,13 @@ build/Debug/StudyPlanner.exe
 - Menu choices must be within the valid range.
 
 ## Data File
+Saved records are stored in `data/assignments.txt` as tab-separated fields:
 
-Saved assignment records are stored in:
+`id, course, title, days, hours, importance, completed`
 
-data/assignments.txt
+A missing or empty file starts the planner with no assignments.
 
-The fields are stored in this order:
-
-id, course, title, days, hours, importance, completed
-
-The completed value is stored as 0 or 1.
-
-If the data file is missing or empty, the planner starts with no assignments.
+When loading saved data, malformed records produce a warning and are skipped while valid records continue loading. A saved record is skipped if required fields are missing or blank, a numeric field cannot be fully converted, or a saved value is outside its allowed range.
 
 ## Known Limitations
 
