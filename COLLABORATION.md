@@ -2,11 +2,23 @@ must include dated contributions, commit hashes/links, review/testing work, bloc
 
 # Collaboration and Contribution Evidence
 
+
+
 ## Roles
 
 - Marcos Gilbert: Coordinator/Design + Repository/Integration Lead
 - Zhang Yunjia: Testing/Documentation Lead
 - Shared: both members write code, review, test the integrated program, and understand the full submission.
+
+## Individual Statements
+
+Marcos Gilbert
+I confirm that I authored the work attributed to me, reviewed/tested integrated team work, and can explain the complete submitted program.
+
+Signature/name: Marcos Gilbert  
+Date: October 1, 2026
+
+Zhang Yunja
 
 ## Contribution Log
 
